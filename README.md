@@ -60,7 +60,7 @@ python manage.py runserver
 
 ​	在此页面上输入用户名和密码，点击Submit按钮后可以登陆系统，若用户名密码正确，则跳转到图书借阅页面，若使用管理员账号（admin）登陆，将跳转到图书管理页面。若用户名密码为空或错误，将清空输入并重定向到本页面。点击新用户注册会跳转到注册页面。
 
-![截屏2021-08-07 上午10.48.20](screenshot/截屏2021-08-07 上午10.48.20.png)
+![截屏2021-08-07 上午10.48.20](https://github.com/niceNASA/Library_management_system/blob/main/screenshot/%E6%88%AA%E5%B1%8F2021-08-07%20%E4%B8%8A%E5%8D%8810.48.20.png)
 
 ### 注册页面
 
