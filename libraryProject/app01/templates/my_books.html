@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="utf-8">
+   <title>图书管理系统 我的借阅</title>
+   <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+   <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+   <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<script type="text/javascript">
+    function querystring(qs){
+        var s=location.href;
+            s = s.replace("?","?&").split("&");
+        var re="";
+        for(i=1; i<s.length; i++){
+            if(s[i].indexOf(qs+"=")==0){
+                re = s[i].replace(qs+"=","");
+            }
+        }
+        return re;
+    }
+</script>
+<div class="container">
+    <div class="row clearfix">
+		<div class="col-md-2 column">
+		</div>
+		<div class="col-md-6 column">
+			<div class="page-header">
+				<h1>
+					图书管理系统
+					<div>
+                        <small><span>我的借阅</span>
+                            <script type="text/javascript">
+                            document.write(querystring('name'))
+                            </script> </small>
+					</div>
+				</h1>
+			</div>
+		</div>
+		<div class="col-md-4 column">
+		</div>
+	</div>
+    <div class="container-fluid">
+    <div class="row-fluid">
+        <div class="span12">
+             <table class="table table-hover table-bordered">
+                 <thead>
+                <tr>
+                    <th>序号</th>
+                    <th>图书id</th>
+                    <th>图书名</th>
+                    <th>出版社</th>
+                    <th>操作</th>
+                </tr>
+                </thead>
+                 <tbody>
+                 {% for book in borrowed_list %}
+                      <tr>
+                    <td> {{ forloop.counter }}</td>
+                      <td> {{ book.id }}</td>
+                      <td>{{ book.name }}</td>
+                       <td> {{ book.publisher.name }}</td>
+                     <td>
+                    <a href="/app01/return_book/?id={{ book.id }}">归还</a>
+                </td>
+                </tr>
+                     {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <a href="/app01/">退出登陆</a>
+</div>
+</div>
+</body>
+</html>

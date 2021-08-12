@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% block bar %}
+     <div class="col-md-9" style=  "justify-content: flex-end;">
+            <h1 class="page-header">图书管理</h1>
+        <div class="panel panel-primary">
+                <!-- Default panel contents -->
+        <div class="panel-heading">编辑图书<i class="fa fa-thumb-tack pull-right"></i></div>
+            <div class="panel-body">
+                <div class="row" style="margin-bottom: 15px">
+                    <div class="col-md-4">
+                            <div class="input-group">
+                            </div><!-
+                        </div><!- /input-group -->
+                        </div><!-- /.col-md-4 -->
+                </div>
+                </div>
+{% endblock %}
+
+{% block main %}
+<h1>编辑图书信息</h1>
+    <form action="" method="post">
+    {% csrf_token %}
+    <p>
+        注册ID <input type="text" name="id" value="{{ book.id }}" readonly="readonly">
+    </p>
+    <p>
+        图书名称  <input type="text"  name="name" value="{{ book.name }}">
+    </p>
+     <p>
+       价格 <input type="text" name="price" value="{{ book.price }}">
+   </p>
+    <p>
+       库存<input type="inventory" name="nums" value="{{ book.nums }}">
+   </p>
+    <p>
+       借出<input type="inventory" name="sales" value="{{ book.sales }}">
+   </p>
+        <p>
+        出版社
+      <select multiple name="publisher" id="" required=required>
+            {% for publisher in publishers_list %}
+                <option value="{{ publisher.id }}">{{ publisher.name }}</option>
+          {% endfor  %}
+      </select>
+    </p>
+    <p>
+       <button type="submit" class="btn">提交</button>
+    </p>
+{% endblock %}
